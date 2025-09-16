@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Main1 from "./components/main1";
 import CatalogGrid from "./components/Katalog";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -29,6 +30,7 @@ export default function App() {
           searchTerm={searchTerm}
         />
       </main>
+      <Footer/>
     </div>
   );
 }
