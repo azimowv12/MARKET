@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+/* Global CSS faylga qo'shing */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: white;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #3B82F6;
+}
+
+.swiper-button-next, 
+.swiper-button-prev {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:after, 
+.swiper-button-prev:after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+  background: rgba(59, 130, 246, 0.8);
+}

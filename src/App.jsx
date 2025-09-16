@@ -1,10 +1,14 @@
-import React from 'react'
-import ProductSearch from './components/Navbar'
+import React from 'react';
+import ProductSearch from './components/Navbar';
+import HeroSwiper from './components/HeroSwiper';
 
-export default function App() {
+function App() {
   return (
-    <header>
-      <ProductSearch />
-    </header>
-  )
+    <div className="App">
+      <ProductSearch/>
+      <HeroSwiper />
+    </div>
+  );
 }
+
+export default App;
