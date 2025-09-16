@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import { SearchIcon, HeartIcon, ShoppingCartIcon, UserIcon, FlagIcon } from '@heroicons/react/outline';
+import { MagnifyingGlassIcon, HeartIcon, ShoppingCartIcon, UserIcon } from '@heroicons/react/24/outline';
+import { SiCoinmarketcap } from 'react-icons/si';
 
 const ProductSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="container mx-auto px-4 py-3 flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                        <FlagIcon className="h-6 w-6 text-blue-600" />
-                        <span className="text-xl font-bold">Ozb</span>
+                     <SiCoinmarketcap className='text-3xl' />
+                        <span className="text-xl font-bold">Market</span>
                     </div>
 
                     <div className="flex-1 mx-6">
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <SearchIcon className="h-5 w-5 text-gray-400" />
+                                <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
                             </div>
                             <input
                                 type="text"
@@ -43,30 +43,8 @@ const ProductSearch = () => {
                 </div>
             </header>
 
-            
-            <nav className="bg-white border-t border-gray-200">
-                <div className="container mx-auto px-4">
-                    <div className="flex space-x-8">
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-gray-900 border-b-2 border-blue-600">
-                            Kirish
-                        </a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-900">
-                            Sevimlilar
-                        </a>
-                        <a href="#" className="px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-900">
-                            Savatcha
-                        </a>
-                    </div>
-                </div>
-            </nav>
 
-            {/* Main Content */}
-            <main className="container mx-auto px-4 py-6">
-                <div className="bg-white rounded-lg shadow p-6">
-                    <h2 className="text-lg font-medium text-gray-900 mb-4">Mahsulotlar</h2>
-                    <p className="text-gray-500">Qidiruv natijalari shu yerda ko'rsatiladi...</p>
-                </div>
-            </main>
+
         </div>
     );
 };
