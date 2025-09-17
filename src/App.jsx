@@ -1,10 +1,12 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Main1 from "./components/main1";
+import Main1 from "./components/Main1";
 import CatalogGrid from "./components/Katalog";
 import Footer from "./components/Footer";
 import Contact from "./components/contact";
 import Hero from "./components/HeroSwiper";
+import ProductDetail from "./components/ProductDetail";
 
 export default function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -12,30 +14,53 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col pb-10">
-      <Navbar
-        wishlistCount={wishlist.length}
-        cartCount={cart.length}
-        onSearch={setSearchTerm}
-      />
-      <div className="max-w-7xl mx-auto mt-40 ">
-
-      <Hero />
-      </div>
-      <div className="pt-16">
-        <CatalogGrid />
-      </div>
-      <main className="">
-        <Main1
-          wishlist={wishlist}
-          setWishlist={setWishlist}
-          cart={cart}
-          setCart={setCart}
-          searchTerm={searchTerm}
+    <Router>
+      <div className="bg-gray-50 min-h-screen flex flex-col pb-10">
+        <Navbar
+          wishlistCount={wishlist.length}
+          cartCount={cart.length}
+          onSearch={setSearchTerm}
         />
-      </main>
-      <Contact />
-      <Footer />
-    </div>
+
+        <div className="max-w-7xl mx-auto mt-40">
+          <Routes>
+            {/* Bosh sahifa */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <div className="pt-16">
+                    <CatalogGrid />
+                  </div>
+                  <Main1
+                    wishlist={wishlist}
+                    setWishlist={setWishlist}
+                    cart={cart}
+                    setCart={setCart}
+                    searchTerm={searchTerm}
+                  />
+                  <Contact />
+                  <Footer />
+                </>
+              }
+            />
+
+            {/* Mahsulot sahifasi */}
+            <Route
+              path="/product/:id"
+              element={
+                <ProductDetail
+                  wishlist={wishlist}
+                  setWishlist={setWishlist}
+                  cart={cart}
+                  setCart={setCart}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
