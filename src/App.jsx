@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Main1 from "./components/main1";
 import CatalogGrid from "./components/Katalog";
 import Footer from "./components/Footer";
+import Contact from "./components/contact";
+import Hero from "./components/HeroSwiper";
 
 export default function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -10,16 +12,18 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="bg-gray-50 pb-10">
+    <div className="bg-gray-50 min-h-screen flex flex-col pb-10">
       <Navbar
         wishlistCount={wishlist.length}
         cartCount={cart.length}
         onSearch={setSearchTerm}
-        
       />
-      <div className="pt-16">
+      <div className="max-w-7xl mx-auto mt-40 ">
 
-      <CatalogGrid/>
+      <Hero />
+      </div>
+      <div className="pt-16">
+        <CatalogGrid />
       </div>
       <main className="">
         <Main1
@@ -30,7 +34,8 @@ export default function App() {
           searchTerm={searchTerm}
         />
       </main>
-      <Footer/>
+      <Contact />
+      <Footer />
     </div>
   );
 }
