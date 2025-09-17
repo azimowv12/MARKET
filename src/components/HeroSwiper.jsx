@@ -43,7 +43,6 @@ const HeroSwiper = () => {
           </div>
         </SwiperSlide>
 
-        {/* Qo'shimcha slaydlar */}
       </Swiper>
     </div>
   );

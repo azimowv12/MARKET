@@ -2,22 +2,17 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white w-full min-h-screen flex flex-col">
-      {/* Asosiy kontent */}
+    <footer className="bg-gray-900 text-white w-full  flex flex-col">
       <div className="flex-grow flex items-center justify-center">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            {/* Logo va kontakt ma'lumotlari */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Market</h2>
               <p className="mb-2">Go'llab quvvatlash ragami</p>
               <p className="text-lg font-semibold mb-4">+998 99 199 45 55</p>
-              <p className="mb-2">[Somewhere, Toshkent]</p>
-              <p>rayyonmarker@gmail.com</p>
+              <p className="mb-2">[Somewhere, Buxoro]</p>
+              <p>marker@gmail.com</p>
             </div>
-
-            {/* Ma'lumot bo'limi */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Ma' lumot</h3>
               <ul className="space-y-2">
@@ -30,8 +25,6 @@ const Footer = () => {
                 <li><a href="#" className="hover:text-blue-400 transition-colors">Yordam</a></li>
               </ul>
             </div>
-
-            {/* To'lov tizimlari va ijtimoiy tarmoqlar */}
             <div className="lg:col-span-2">
               <div className="mb-8">
                 <h3 className="text-lg font-semibold mb-4">To'lov usullari</h3>
@@ -65,8 +58,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Pastki qism */}
       <div className="border-t border-gray-700 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
