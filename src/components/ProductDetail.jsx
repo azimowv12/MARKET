@@ -34,7 +34,7 @@ export default function ProductDetail({ cart, setCart }) {
     if (!product) return <p className="text-center py-6 text-red-500">Mahsulot topilmadi</p>;
 
     return (
-        <section className="bg-gray-50 py-10 px-6 flex flex-col md:flex-row gap-10">
+        <section className="bg-gray-50 py-10 px-6 flex flex-col md:flex-row gap-10  dark:bg-gray-900 ">
             <div className="flex-1 flex justify-center">
                 <img
                     src={product.image}
@@ -44,18 +44,18 @@ export default function ProductDetail({ cart, setCart }) {
             </div>
 
             <div className="flex-1 flex flex-col justify-center">
-                <h1 className="text-2xl font-bold mb-3">{product.title}</h1>
+                <h1 className="text-2xl font-bold mb-3  dark:text-white ">{product.title}</h1>
 
-                <div className="flex items-center text-yellow-500 text-sm mb-3">
+                <div className="flex items-center text-yellow-500 text-sm mb-3  dark:text-white">
                     <FaStar className="mr-1" /> {product.rating?.rate}
-                    <span className="ml-1 text-gray-500">
+                    <span className="ml-1 text-gray-500  dark:text-white">
                         ({product.rating?.count} ta sharh)
                     </span>
                 </div>
 
-                <p className="text-gray-700 mb-4">{product.description}</p>
+                <p className="text-gray-700 mb-4  dark:text-white">{product.description}</p>
 
-                <p className="text-3xl font-bold mb-6">${product.price}</p>
+                <p className="text-3xl font-bold mb-6  dark:text-white">${product.price}</p>
 
                 <button
                     onClick={() => toggleCart(product.id)}

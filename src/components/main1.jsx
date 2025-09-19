@@ -41,14 +41,14 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
     if (loading) return <p className="text-center py-6">⏳ Yuklanmoqda...</p>;
 
     return (
-        <section className="bg-gray-50 py-8 px-4">
+        <section className="bg-gray-50 py-8 px-4  dark:bg-gray-900 dark:text-white">
             <h2 className="text-2xl font-bold mb-6">Mahsulotlar</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  ">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
                         <div
                             key={product.id}
-                            className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between hover:shadow-lg transition"
+                            className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between hover:shadow-lg transition  dark:bg-gray-900 dark:text-white"
                         >
                             {/* ✅ Product sahifaga o'tish uchun Link */}
                             <Link to={`/product/${product.id}`}>
@@ -57,7 +57,7 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
                                     alt={product.title}
                                     className="w-full h-48 object-contain mb-3"
                                 />
-                                <h3 className="text-sm font-medium text-gray-800">{product.title}</h3>
+                                <h3 className="text-sm font-medium text-gray-800  dark:text-white">{product.title}</h3>
                             </Link>
 
                             <p className="text-lg font-bold mt-2">${product.price}</p>

@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className="bg-gray-50 min-h-screen flex flex-col pb-10">
+      <div className="bg-gray-50 min-h-screen flex flex-col pb-10  dark:bg-gray-900  ">
         <Navbar
           wishlistCount={wishlist.length}
           cartCount={cart.length}
