@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { HeartIcon, ShoppingCartIcon, MagnifyingGlassIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { SiCoinmarketcap } from "react-icons/si";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar({ wishlistCount, cartCount, onSearch }) {
+
+  const { t, i18n } = useTranslation()
   const [search, setSearch] = useState("");
   const [darkMode, setDarkMode] = useState(
     document.documentElement.classList.contains("dark")
   );
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -44,7 +50,7 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
               type="text"
               value={search}
               onChange={handleChange}
-              placeholder="Mahsulot qidiring..."
+              placeholder={t("search.placeholder")}
               className="w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
             />
           </div>
@@ -70,6 +76,7 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
             )}
           </div>
 
+
           {/* DARK MODE TOGGLE */}
           <button
             onClick={toggleDarkMode}
@@ -81,6 +88,17 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
               <MoonIcon className="h-6 w-6 text-gray-800" />
             )}
           </button>
+          <div className=" ">
+            <select
+              onChange={handleLanguageChange}
+              value={i18n.language}
+              className="border rounded p-1"
+            >
+              <option value="uz">O'zbekcha</option>
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+            </select>
+          </div>
         </div>
       </div>
     </header>
