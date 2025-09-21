@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Main1 from "./components/Main1.jsx";
+import Main1 from "./components/main1";
 import CatalogGrid from "./components/Katalog";
 import Footer from "./components/Footer";
 import Contact from "./components/contact";
