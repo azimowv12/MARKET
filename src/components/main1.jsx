@@ -70,9 +70,9 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
                             </div>
 
                             <div className="flex items-center justify-between mt-3">
-                                <button onClick={() => toggleWishlist(product.id)}>
+                                <button onClick={() => toggleWishlist(product)}>
                                     <FaHeart
-                                        className={`text-2xl transition ${wishlist.includes(product.id)
+                                        className={`text-2xl transition ${wishlist.includes(product)
                                             ? "text-red-500"
                                             : "text-gray-400"
                                             }`}
@@ -80,11 +80,11 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
                                 </button>
 
                                 <button
-                                    onClick={() => toggleCart(product.id)}
+                                    onClick={() => toggleCart(product)}
                                     className="flex items-center gap-2 bg-blue-600 text-white py-2 px-3 rounded-xl hover:bg-blue-700 transition"
                                 >
                                     <FaShoppingCart />
-                                    {cart.includes(product.id)
+                                    {cart.includes(product)
                                         ? "Savatdan olib tashlash"
                                         : "Savatga qo‘shish"}
                                 </button>

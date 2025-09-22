@@ -2,6 +2,7 @@ import { useState } from "react";
 import { HeartIcon, ShoppingCartIcon, MagnifyingGlassIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { SiCoinmarketcap } from "react-icons/si";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 export default function Navbar({ wishlistCount, cartCount, onSearch }) {
 
@@ -58,23 +59,23 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
 
         {/* ICONS */}
         <div className="flex items-center space-x-6">
-          <div className="relative">
+          <Link to="/saved" className="relative">
             <HeartIcon className="h-7 w-7 text-gray-600 dark:text-gray-300 cursor-pointer" />
             {wishlistCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {wishlistCount}
               </span>
             )}
-          </div>
+          </Link>
 
-          <div className="relative">
+          <Link to="/korzinka" className="relative">
             <ShoppingCartIcon className="h-7 w-7 text-gray-600 dark:text-gray-300 cursor-pointer" />
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
-          </div>
+          </Link>
 
 
           {/* DARK MODE TOGGLE */}
@@ -92,9 +93,9 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
             <select
               onChange={handleLanguageChange}
               value={i18n.language}
-              className="border rounded p-1"
+              className="border rounded p-1 dark:text-white "
             >
-              <option value="uz">O'zbekcha</option>
+              <option value="uz" >O'zbekcha</option>
               <option value="ru">Русский</option>
               <option value="en">English</option>
             </select>

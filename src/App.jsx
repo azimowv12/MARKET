@@ -7,7 +7,9 @@ import Footer from "./components/Footer";
 import Contact from "./components/contact";
 import Hero from "./components/HeroSwiper";
 import ProductDetail from "./components/ProductDetail";
-import i18n from "../i18n";
+import Saved from "./components/Saved";
+import Korzinka from "./components/Korzinka";
+import i18n from "../i18n"
 
 export default function App() {
   const [wishlist, setWishlist] = useState([]);
@@ -60,6 +62,9 @@ export default function App() {
                 />
               }
             />
+            <Route path="/saved" element={<Saved wishlist={wishlist} />} />
+           <Route path="/korzinka" element={<Korzinka cart={cart} />} />
+
           </Routes>
         </div>
       </div>
