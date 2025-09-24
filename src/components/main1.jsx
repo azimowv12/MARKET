@@ -28,10 +28,17 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
         );
     };
 
-    const toggleCart = (id) => {
-        setCart((prev) =>
-            prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
-        );
+    // ✅ Savatga qo'shish va o'chirish
+    const toggleCart = (product) => {
+        setCart((prev) => {
+            const exists = prev.find((p) => p.id === product.id);
+            if (exists) {
+                // Mahsulot bor bo‘lsa → olib tashlaymiz
+                return prev.filter((p) => p.id !== product.id);
+            }
+            // Mahsulot yo‘q bo‘lsa → quantity=1 bilan qo‘shamiz
+            return [...prev, { ...product, quantity: 1 }];
+        });
     };
 
     const filteredProducts = post.filter((p) =>
@@ -41,23 +48,24 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
     if (loading) return <p className="text-center py-6">⏳ Yuklanmoqda...</p>;
 
     return (
-        <section className="bg-gray-50 py-8 px-4  dark:bg-gray-900 dark:text-white">
+        <section className="bg-gray-50 py-8 px-4 dark:bg-gray-900 dark:text-white">
             <h2 className="text-2xl font-bold mb-6">Mahsulotlar</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
                         <div
                             key={product.id}
-                            className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between hover:shadow-lg transition  dark:bg-gray-900 dark:text-white"
+                            className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between hover:shadow-lg transition dark:bg-gray-900 dark:text-white"
                         >
-                            {/* ✅ Product sahifaga o'tish uchun Link */}
                             <Link to={`/product/${product.id}`}>
                                 <img
                                     src={product.image}
                                     alt={product.title}
                                     className="w-full h-48 object-contain mb-3"
                                 />
-                                <h3 className="text-sm font-medium text-gray-800  dark:text-white">{product.title}</h3>
+                                <h3 className="text-sm font-medium text-gray-800 dark:text-white">
+                                    {product.title}
+                                </h3>
                             </Link>
 
                             <p className="text-lg font-bold mt-2">${product.price}</p>
@@ -73,18 +81,21 @@ export default function Main1({ wishlist, setWishlist, cart, setCart, searchTerm
                                 <button onClick={() => toggleWishlist(product)}>
                                     <FaHeart
                                         className={`text-2xl transition ${wishlist.includes(product)
-                                            ? "text-red-500"
-                                            : "text-gray-400"
+                                                ? "text-red-500"
+                                                : "text-gray-400"
                                             }`}
                                     />
                                 </button>
 
                                 <button
                                     onClick={() => toggleCart(product)}
-                                    className="flex items-center gap-2 bg-blue-600 text-white py-2 px-3 rounded-xl hover:bg-blue-700 transition"
+                                    className={`flex items-center gap-2 ${cart.find((c) => c.id === product.id)
+                                            ? "bg-red-600 hover:bg-red-700"
+                                            : "bg-blue-600 hover:bg-blue-700"
+                                        } text-white py-2 px-3 rounded-xl transition`}
                                 >
                                     <FaShoppingCart />
-                                    {cart.includes(product)
+                                    {cart.find((c) => c.id === product.id)
                                         ? "Savatdan olib tashlash"
                                         : "Savatga qo‘shish"}
                                 </button>

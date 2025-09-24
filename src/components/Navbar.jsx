@@ -38,9 +38,9 @@ export default function Navbar({ wishlistCount, cartCount, onSearch }) {
         {/* LOGO */}
         <div className="flex items-center space-x-2">
           <SiCoinmarketcap className="text-3xl text-gray-900 dark:text-white" />
-          <span className="text-xl font-bold text-gray-900 dark:text-white">
+          <a href="" className="text-xl font-bold text-gray-900 dark:text-white cursor-pointer">
             Market
-          </span>
+          </a>
         </div>
 
         {/* SEARCH */}

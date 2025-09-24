@@ -63,7 +63,8 @@ export default function App() {
               }
             />
             <Route path="/saved" element={<Saved wishlist={wishlist} />} />
-           <Route path="/korzinka" element={<Korzinka cart={cart} />} />
+           <Route path="/korzinka" element={<Korzinka cart={cart} setcart={setCart} />} />
+
 
           </Routes>
         </div>

@@ -11,7 +11,7 @@ export default function HeroSwiper() {
   ];
 
   return (
-    <div className="px-2">
+    <div className="px-2" id="hero">
       {/* Swiper faqat md va undan katta ekranlarda */}
       <div className="hidden md:block">
         <Swiper
